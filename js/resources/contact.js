@@ -11,7 +11,7 @@ export default Backbone.Model.extend({
   gravatarUrl() {
     let email = this.get('Email');
     let hash = md5(email);
-    return `http://gravatar.com/avatar/${hash}?s=400`;
+    return `http://gravatar.com/avatar/${hash}?s=200`;
   },
 
   templateData() {

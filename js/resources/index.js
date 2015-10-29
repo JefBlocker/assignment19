@@ -1,7 +1,7 @@
-import Person from './person';
-import People from './people';
+import Contact from './contact';
+import Contacts from './contacts';
 
 export {
-  Person,
-  People
+  Contact,
+  Contacts
 };

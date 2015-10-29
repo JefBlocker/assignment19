@@ -1,8 +1,8 @@
 function processData(data) {
   return data.map(function(item){
     return `
-      <li class="person-list-item" data-person-id="${item.objectId}">
-        <span>${item.FirstName}</span>
+      <li class="contact-list-item" data-contact-id="${item.objectId}">
+        <span><i class="fa fa-user"></i> ${item.Name}</span>
       </li>
     `;
   }).join('');
@@ -10,8 +10,8 @@ function processData(data) {
 
 export default function(data) {
   return `
-    <div class="people-list">
-      <h1>People</h1>
+    <div class="contacts-list">
+      <h1>My Peeps</h1>
       <ul>${processData(data)}</ul>
     </div>
   `;

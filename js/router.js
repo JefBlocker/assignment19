@@ -2,31 +2,31 @@ import Backbone from 'backbone';
 import $ from 'jquery';
 
 import {
-  People as PeopleCollection
+  Contacts as ContactsCollection
 } from './resources';
 
 import {
-  People as PeopleView, 
-  Person as PersonView, 
+  Contacts as ContactsView, 
+  Contact as ContactView, 
   Spinner
 } from './views';
 
 export default Backbone.Router.extend({
 
   routes: {
-    ""            : "redirectToPeople",
-    "people"      : "showPeople",
-    "person/:id"  : "showPerson"
+    ""            : "redirectToContacts",
+    "contacts"      : "showContacts",
+    "contact/:id"  : "showContact"
   },
 
   initialize(appElement) {
     this.$el = appElement;
-    this.collection = new PeopleCollection();
+    this.collection = new ContactsCollection();
 
-    this.$el.on('click', '.person-list-item', (event) => {
+    this.$el.on('click', '.contact-list-item', (event) => {
       let $li = $(event.currentTarget);
-      let personId = $li.data('person-id');
-      this.navigate(`person/${personId}`, {trigger: true});
+      let contactId = $li.data('contact-id');
+      this.navigate(`contact/${contactId}`, {trigger: true});
     });
 
     this.$el.on('click', '.back-button', (event) => {
@@ -45,14 +45,14 @@ export default Backbone.Router.extend({
     this.$el.html( Spinner() );
   },
 
-  redirectToPeople() {
-    this.navigate('people', {
+  redirectToContacts() {
+    this.navigate('contacts', {
       replace: true,
       trigger: true
     });
   },
 
-  showPeople() {
+  showContacts() {
     this.showSpinner();
 
     // this.collection.fetch().then(function() {
@@ -64,30 +64,30 @@ export default Backbone.Router.extend({
       // `this` === the router instance
 
       this.$el.html(
-        PeopleView(
+        ContactsView(
           this.collection.toJSON()
         )
       );
     });
   },
 
-  showPerson(id) {
-    let person = this.collection.get(id);
+  showContact(id) {
+    let contact = this.collection.get(id);
 
-    if (person) {
+    if (contact) {
       // we found the person from the collection
       this.$el.html(
-        PersonView(
-          person.templateData()
+        ContactView(
+          contact.templateData()
         )
       );
     } else {
       this.showSpinner();
-      person = this.collection.add({objectId: id});
-      person.fetch().then(() => {
+      contact = this.collection.add({objectId: id});
+      contact.fetch().then(() => {
         this.$el.html(
-          PersonView(
-            person.templateData()
+          ContactView(
+            contact.templateData()
           )
         );
       });

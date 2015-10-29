@@ -2,5 +2,55 @@
 @import "font-awesome";
 
 body {
-  background: #e2ebf3;
+  background-color: #DEDEDE;
+  margin-left: 25px;
+}
+
+h3 {
+  background-color: #81BC39;
+  border-radius: 5px;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: -38px;
+  margin-top: -20px;
+}
+
+li {
+  background-color: white;
+  border: 1px solid #DEDEDE;
+  border-radius: 5px;
+  width: 500px;
+  padding-left: 5px;
+}
+
+.gravatar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gravatar img {
+  border: 5px solid #DEDEDE;
+  border-radius: 5px;
+}
+
+h1 {
+  background-color: #81BC39;
+  border: 1px solid #DEDEDE;
+  border-radius: 5px;
+  color: white;
+  width: 500px;
+  padding-left: 5px;
+}
+
+p {
+  background-color: white;
+  border: 1px solid #DEDEDE;
+  border-radius: 5px;
+  width: 500px;
+  height: 22px;
+  margin-top: -20px;
+  padding-left: 5px;
 }

@@ -1,12 +1,12 @@
 import Backbone from 'backbone';
-import Person from './person';
+import Contact from './contact';
 import {APP_URL} from '../parse_data';
 
 export default Backbone.Collection.extend({
 
   url: APP_URL,
 
-  model: Person,
+  model: Contact,
 
   // parse: function(data) {
   //   return data.results;
